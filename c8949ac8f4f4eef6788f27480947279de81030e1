@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1aa4ed85_b55cdf26",
+        "filename": "alexa-bridge-skill-lambda/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 3653
+      },
+      "writtenOn": "2017-12-19T23:43:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1aa4ed85_b525bfac",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 8
+      },
+      "revId": "c8949ac8f4f4eef6788f27480947279de81030e1",
+      "serverId": "c6509b8a-a471-4ec1-8e5f-9aed2654acb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1aa4ed85_553a4bce",
         "filename": "alexa-bridge-skill-lambda/index.js",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "1aa4ed85_5541eb37",
+        "filename": "alexa-bridge-skill-lambda/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 3653
+      },
+      "writtenOn": "2017-12-19T23:43:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1aa4ed85_553a4bce",
+      "revId": "c8949ac8f4f4eef6788f27480947279de81030e1",
+      "serverId": "c6509b8a-a471-4ec1-8e5f-9aed2654acb5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1aa4ed85_753747e4",
         "filename": "alexa-bridge-skill-lambda/index.js",
         "patchSetId": 1
@@ -53,6 +95,24 @@
       "writtenOn": "2017-12-19T23:15:15Z",
       "side": 1,
       "message": "more whitespace",
+      "revId": "c8949ac8f4f4eef6788f27480947279de81030e1",
+      "serverId": "c6509b8a-a471-4ec1-8e5f-9aed2654acb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_753e67ba",
+        "filename": "alexa-bridge-skill-lambda/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 3653
+      },
+      "writtenOn": "2017-12-19T23:43:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1aa4ed85_753747e4",
       "revId": "c8949ac8f4f4eef6788f27480947279de81030e1",
       "serverId": "c6509b8a-a471-4ec1-8e5f-9aed2654acb5",
       "unresolved": false
