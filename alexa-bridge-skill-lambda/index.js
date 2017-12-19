@@ -54,7 +54,7 @@ var handlers = {
         var lightBrightness = this.event.request.intent.slots.lightBrightness.value;
         console.log("lightName: " + lightName);
         console.log("lightBrightness: " + lightBrightness);
-        
+
         if (!lightName || !lightBrightness) {
             this.emit(":tell", "Sorry, I didn't get that");
         } else {
@@ -245,7 +245,7 @@ var postGetLights = {
             }
             console.log("desired lightDevices["+index+"]: "+JSON.stringify(lightDevices[index]));
         });
-        var desiredLightState = 
+        var desiredLightState =
         {"state":{"desired":{"device":thingName,"lightDevices":lightDevices}}};
 
         var thingNameAndPayload = {
@@ -282,7 +282,7 @@ var postGetLights = {
             }
             console.log("desired lightDevices["+index+"]: "+JSON.stringify(lightDevices[index]));
         });
-        var desiredLightState = 
+        var desiredLightState =
         {"state":{"desired":{"device":thingName,"lightDevices":lightDevices}}};
 
         var thingNameAndPayload = {
@@ -320,7 +320,7 @@ var postGetLights = {
             }
             console.log("desired lightDevices["+index+"]: "+JSON.stringify(lightDevices[index]));
         });
-        
+
         // sort desired light devices by name (ignoring case)
         lightDevices.sort((lhs, rhs) => {
             var lhsName = lhs.name.toLowerCase();
@@ -338,8 +338,8 @@ var postGetLights = {
         lightDevices.forEach((item, index, array) => {
             console.log("sorted desired lightDevices["+index+"]: "+JSON.stringify(item));
         });
-            
-        var desiredLightState = 
+
+        var desiredLightState =
         {"state":{"desired":{"device":thingName,"lightDevices":lightDevices}}};
 
         var thingNameAndPayload = {
