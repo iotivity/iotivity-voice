@@ -1,0 +1,3 @@
+# -cp assumes iotivity.jar has been copied into ./lib/
+
+java -Djava.library.path=/home/larrys/work/iotivity-1.3-rel/iotivity/out/linux/x86_64/release -cp AlexaIotivityBridgeDemo.jar:./lib/iotivity.jar:./lib/aws-iot-device-sdk-java-1.1.1.jar:./lib/jackson-core-2.9.0.jar:./lib/jackson-annotations-2.9.0.jar:./lib/jackson-databind-2.9.0.jar:./lib/org.eclipse.paho.client.mqttv3-1.2.0.jar org.iotivity.base.examples.AlexaIotivityBridgeDemo -clientEndpoint a2a16j9xf0mmy6.iot.us-east-1.amazonaws.com -clientId arn:aws:iot:us-east-1:834884142022:thing/LeetoniaLinuxSystem -certificateFile /home/larrys/work/connect_device_package/larryslinuxbox.cert.pem -privateKeyFile /home/larrys/work/connect_device_package/larryslinuxbox.private.key -thingName LeetoniaLinuxSystem
