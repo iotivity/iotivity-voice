@@ -1,0 +1,13 @@
+./src/main/java/org/iotivity/base/examples/OcfLightDevice.java
+./src/main/java/org/iotivity/base/examples/Light.java
+./src/main/java/org/iotivity/base/examples/LightConfig.java
+./src/main/java/org/iotivity/base/examples/Brightness.java
+./src/main/java/org/iotivity/base/examples/Switch.java
+./src/main/java/org/iotivity/base/examples/Resource.java
+./src/main/java/org/iotivity/base/examples/Links.java
+./src/main/java/org/iotivity/base/examples/Link.java
+./src/main/java/org/iotivity/base/examples/LightPanel.java
+./src/main/java/org/iotivity/base/examples/LightImageObserver.java
+./src/main/java/org/iotivity/base/examples/NamesPropertyFile.java
+
+
