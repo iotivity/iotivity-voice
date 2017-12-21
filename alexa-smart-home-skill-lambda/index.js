@@ -217,7 +217,7 @@ function getDevicesFromAwsIot(userAccessToken, callback) {
                 });
             }
         }
-        
+
         const response = {
             event: {
                 header: {
@@ -337,14 +337,14 @@ function setAwsIotDeviceState(userAccessToken, endpointId, correlationToken, pow
                     if (!err) {
                         console.log("DEBUG", "Response: " + JSON.stringify(response, null, 2));
                         callback(null, response);
-                        
+
                     } else {
                         const message = "Unable to set device state";
                         console.log("ERROR", message);
                         callback(null, generateErrorResponse("INTERNAL_ERROR", message, endpointId, correlationToken));
                     }
                 });
-                
+
             } else {
                 const message = "EndpointId not found in device list";
                 console.log("ERROR", message);
@@ -378,7 +378,7 @@ function handleDiscovery(request, callback) {
 
 function handleReportState(request, callback) {
     console.log("DEBUG", "ReportState Request: " + JSON.stringify(request, null, 2));
-    
+
     const correlationToken = request.directive.header.correlationToken;
     console.log("DEBUG", "correlationToken: " + correlationToken);
 
@@ -422,7 +422,7 @@ function handleReportState(request, callback) {
 
 function handleControl(request, callback) {
     console.log("DEBUG", "Control Request: " + JSON.stringify(request, null, 2));
-    
+
     const correlationToken = request.directive.header.correlationToken;
     const endpointId = request.directive.endpoint.endpointId;
 
