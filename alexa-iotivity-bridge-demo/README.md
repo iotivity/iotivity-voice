@@ -29,7 +29,21 @@ You will need to build IoTivity prior to use.
 Once built, the build.sh and run.sh scripts expect iotivity.jar to be copied to ./lib directory.
 
     $ cp <iotivity>/out/linux/x86_64/release/java/iotivity.jar lib/.
-    
+
+
+Additionally, these jar files are also expected to be in the ./lib directory:
+
+
+[aws-iot-device-sdk-java-1.1.1.jar](https://s3.amazonaws.com/aws-iot-device-sdk-java/aws-iot-device-sdk-java-LATEST.zip)
+
+[org.eclipse.paho.client.mqttv3-1.2.0.jar](https://www.eclipse.org/paho/)
+
+[jackson-core-2.9.0.jar](https://jar-download.com/?search_box=jackson-core-2.9.0)
+
+[jackson-databind-2.9.0.jar](https://jar-download.com/?search_box=jackson-databind-2.9.0)
+
+[jackson-annotations-2.9.0.jar](https://jar-download.com/?search_box=jackson-annotations-2.9.0)
+
 ## Build
 
     $ ./build.sh
