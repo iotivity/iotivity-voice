@@ -16,6 +16,24 @@
       "revId": "7c889eeade630caad55c273537d3d8751775f686",
       "serverId": "c6509b8a-a471-4ec1-8e5f-9aed2654acb5",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_3546afc0",
+        "filename": "alexa-iotivity-bridge-demo/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 3653
+      },
+      "writtenOn": "2017-12-22T19:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1aa4ed85_553fab25",
+      "revId": "7c889eeade630caad55c273537d3d8751775f686",
+      "serverId": "c6509b8a-a471-4ec1-8e5f-9aed2654acb5",
+      "unresolved": false
     }
   ]
 }
