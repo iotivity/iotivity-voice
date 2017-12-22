@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aa4ed85_553fab25",
+        "filename": "alexa-iotivity-bridge-demo/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 4407
+      },
+      "writtenOn": "2017-12-22T18:34:26Z",
+      "side": 1,
+      "message": "This is markdown then I would encourage to use markdown for the links\n\nLinks\nMarkdown supports two style of links: inline and reference.\nIn both styles, the link text is delimited by [square brackets].\nTo create an inline link, use a set of regular parentheses immediately after the link text",
+      "revId": "7c889eeade630caad55c273537d3d8751775f686",
+      "serverId": "c6509b8a-a471-4ec1-8e5f-9aed2654acb5",
+      "unresolved": false
+    }
+  ]
+}
