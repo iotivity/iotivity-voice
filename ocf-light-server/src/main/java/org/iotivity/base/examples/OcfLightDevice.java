@@ -23,7 +23,9 @@
 package org.iotivity.base.examples;
 
 import org.iotivity.base.ModeType;
+import org.iotivity.base.OcException;
 import org.iotivity.base.OcPlatform;
+import org.iotivity.base.OcResourceHandle;
 import org.iotivity.base.PlatformConfig;
 import org.iotivity.base.QualityOfService;
 import org.iotivity.base.ServiceType;
@@ -53,15 +55,18 @@ public class OcfLightDevice {
     static boolean isTest;
     static int testFrequency = 3;
 
-    static boolean useLinks;
+    static boolean useLinks = true;
     static String name;
     static boolean powerOn = true;
     static int brightness = 100;
+
+    static OcResourceHandle deviceResourceHandle;
 
     public static void main(String args[]) throws IOException, InterruptedException {
 
         if ((args.length > 0) && (args[0].startsWith("-"))) {
             if (args[0].startsWith("-t")) {
+                // toggle test
                 isTest = true;
                 try {
                     testFrequency = Integer.valueOf(args[0].substring(2));
@@ -71,9 +76,10 @@ public class OcfLightDevice {
                 testFrequency = Math.max(1, testFrequency);
                 testFrequency = Math.min(60, testFrequency);
                 msg("Server in test mode with frequecy of " + testFrequency);
-            } else if (args[0].equalsIgnoreCase("-l")) {
-                useLinks = true;
-                msg("Server using links");
+            } else if (args[0].equalsIgnoreCase("-v")) {
+                // vendor specific resource
+                useLinks = false;
+                msg("Server using vendor resource type");
             } else {
                 msg("Unknown runtime parameter: " + args[0]);
             }
@@ -88,6 +94,17 @@ public class OcfLightDevice {
 
         OcPlatform.Configure(platformConfig);
         msg("Platform configured");
+
+        try {
+            deviceResourceHandle = OcPlatform.getResourceHandleAtUri(OcPlatform.WELL_KNOWN_DEVICE_QUERY);
+            if (deviceResourceHandle != null) {
+                OcPlatform.bindTypeToResource(deviceResourceHandle, Light.RES_TYPE);
+            }
+
+        } catch (OcException e) {
+            OcfLightDevice.msgError("Failed to bind device type to /oic/d resource");
+            e.printStackTrace();
+        }
 
         String uuid = null;
         if (NamesPropertyFile.getInstance().hasName(name)) {

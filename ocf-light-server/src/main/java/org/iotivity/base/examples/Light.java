@@ -34,11 +34,18 @@ import org.iotivity.base.PayloadType;
  * This class represents a light resource
  */
 public class Light extends Resource implements LightImageObserver {
-    static private final String RES_TYPE = "oic.d.light";
+    static public final String RES_TYPE = "oic.d.light";
+    static public final String DEVICE_RES_TYPE = "oic.wk.d";
 
+    static private final String COL_RES_TYPE = "oic.wk.col";
+
+    static private final String VENDOR_RES_TYPE = "x.org.examples.light";
+
+    static private final String RTS_KEY = "rts";
     static private final String LINKS_KEY = "links";
 
     private Links resourceLinks;
+    private String[] collectionResTypes = {Switch.RES_TYPE, Brightness.RES_TYPE};
 
     private LightConfig lightConfigRes;
     private Switch switchRes;
@@ -49,7 +56,7 @@ public class Light extends Resource implements LightImageObserver {
     private int brightness;
 
     public Light(boolean useLinks, String name, String uuid, boolean powerOn, int brightness, LightPanel ui) {
-        super("/ocf/light/" + uuid, RES_TYPE, OcPlatform.DEFAULT_INTERFACE);
+        super("/ocf/light/" + uuid, (useLinks ? RES_TYPE : VENDOR_RES_TYPE), OcPlatform.DEFAULT_INTERFACE);
 
         if (useLinks) {
             lightConfigRes = new LightConfig(name, uuid, this);
@@ -89,14 +96,16 @@ public class Light extends Resource implements LightImageObserver {
         }
 
         if (useLinks) {
-            Link[] links = new Link[3];
+            Link[] links = new Link[4];
             links[0] = new Link(lightConfigRes.getResourceUri(), new String[] { LightConfig.RES_TYPE });
             links[1] = new Link(switchRes.getResourceUri(), new String[] { Switch.RES_TYPE });
             links[2] = new Link(brightnessRes.getResourceUri(), new String[] { Brightness.RES_TYPE });
+            links[3] = new Link("/oic/d", new String[] { DEVICE_RES_TYPE, RES_TYPE });
             resourceLinks = new Links(links);
 
             try {
                 OcPlatform.bindInterfaceToResource(getResourceHandle(), OcPlatform.LINK_INTERFACE);
+                OcPlatform.bindTypeToResource(getResourceHandle(), COL_RES_TYPE);
 
             } catch (OcException e) {
                 OcfLightDevice.msgError("Failed to bind link interface for " + getResourceUri());
@@ -118,7 +127,6 @@ public class Light extends Resource implements LightImageObserver {
                 OcfLightDevice.msgError("Failed to bind interface or type for " + getResourceUri());
                 e.printStackTrace();
             }
-
         }
 
         OcfLightDevice.msg("Created light resource: " + this);
@@ -194,6 +202,7 @@ public class Light extends Resource implements LightImageObserver {
         OcRepresentation rep = new OcRepresentation();
         try {
             if (resourceLinks != null) {
+                rep.setValue(RTS_KEY, collectionResTypes);
                 OcRepresentation[] links = resourceLinks.getOcRepresentation();
                 rep.setValue(LINKS_KEY, links);
 

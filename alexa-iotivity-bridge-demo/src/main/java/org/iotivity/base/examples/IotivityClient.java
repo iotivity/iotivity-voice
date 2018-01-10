@@ -123,7 +123,9 @@ public class IotivityClient implements
             tracked = true;
 
         } else {
-            AlexaIotivityBridgeDemo.msg("URI of the new (for now, untracked) resource: " + resourceUri);
+            if (!resourceUri.equals("/oic/d")) {
+                AlexaIotivityBridgeDemo.msg("URI of the new (for now, untracked) resource: " + resourceUri);
+            }
         }
 
         if (tracked) {
@@ -315,27 +317,29 @@ public class IotivityClient implements
                         Links links = device.getLinks();
                         for (Link link : links.getLinks()) {
                             String href = link.getHref();
-                            // rt could be String or String[]
-                            Object rt = link.getRt();
-                            String rtAsString = null;
-                            if (rt instanceof String) {
-                                rtAsString = (String) rt;
+                            if (!href.equals("/oic/d")) {
+                                // rt could be String or String[]
+                                Object rt = link.getRt();
+                                String rtAsString = null;
+                                if (rt instanceof String) {
+                                    rtAsString = (String) rt;
 
-                            } else if (rt instanceof String[]) {
-                                if (((String[]) rt).length > 0) {
-                                    rtAsString = ((String[]) rt)[0];
+                                } else if (rt instanceof String[]) {
+                                    if (((String[]) rt).length > 0) {
+                                        rtAsString = ((String[]) rt)[0];
+                                    } else {
+                                        AlexaIotivityBridgeDemo.msgError("(String[])rt is empty");
+                                    }
+
                                 } else {
-                                    AlexaIotivityBridgeDemo.msgError("(String[])rt is empty");
+                                    AlexaIotivityBridgeDemo.msgError("Unknown rt type of " + rt.getClass().getName());
                                 }
 
-                            } else {
-                                AlexaIotivityBridgeDemo.msgError("Unknown rt type of " + rt.getClass().getName());
-                            }
-
-                            if ((rtAsString != null) && (!mResourceLookup.containsKey(href))) {
-                                AlexaIotivityBridgeDemo.msg("Finding all resources of type " + rtAsString);
-                                String requestUri = OcPlatform.WELL_KNOWN_QUERY + "?rt=" + rtAsString;
-                                OcPlatform.findResource("", requestUri, EnumSet.of(OcConnectivityType.CT_DEFAULT), new ResourceFoundListener(ocRepUri, href));
+                                if ((rtAsString != null) && (!mResourceLookup.containsKey(href))) {
+                                    AlexaIotivityBridgeDemo.msg("Finding all resources of type " + rtAsString);
+                                    String requestUri = OcPlatform.WELL_KNOWN_QUERY + "?rt=" + rtAsString;
+                                    OcPlatform.findResource("", requestUri, EnumSet.of(OcConnectivityType.CT_DEFAULT), new ResourceFoundListener(ocRepUri, href));
+                                }
                             }
                         }
 
