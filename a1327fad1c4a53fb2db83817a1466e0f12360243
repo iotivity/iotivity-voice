@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1aa4ed85_5fd6e550",
+        "filename": "ocf-light-server/src/main/java/org/iotivity/base/examples/Light.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 4407
+      },
+      "writtenOn": "2018-01-11T22:45:04Z",
+      "side": 1,
+      "message": "is this string defined anywhere else in java code that you know of?",
+      "range": {
+        "startLine": 38,
+        "startChar": 31,
+        "endLine": 38,
+        "endChar": 46
+      },
+      "revId": "a1327fad1c4a53fb2db83817a1466e0f12360243",
+      "serverId": "c6509b8a-a471-4ec1-8e5f-9aed2654acb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_bfc4b992",
+        "filename": "ocf-light-server/src/main/java/org/iotivity/base/examples/Light.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 4407
+      },
+      "writtenOn": "2018-01-11T22:45:04Z",
+      "side": 1,
+      "message": "Is this string defined anywhere else in the java code that you are aware of.\n\nIf so we probably should use that define.",
+      "range": {
+        "startLine": 40,
+        "startChar": 32,
+        "endLine": 40,
+        "endChar": 44
+      },
+      "revId": "a1327fad1c4a53fb2db83817a1466e0f12360243",
+      "serverId": "c6509b8a-a471-4ec1-8e5f-9aed2654acb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_dfc17581",
+        "filename": "ocf-light-server/src/main/java/org/iotivity/base/examples/Light.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 4407
+      },
+      "writtenOn": "2018-01-11T22:45:04Z",
+      "side": 1,
+      "message": "confused as to why we need this. I may understand as I go further in the code.",
+      "range": {
+        "startLine": 42,
+        "startChar": 50,
+        "endLine": 42,
+        "endChar": 72
+      },
+      "revId": "a1327fad1c4a53fb2db83817a1466e0f12360243",
+      "serverId": "c6509b8a-a471-4ec1-8e5f-9aed2654acb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_7fbe4101",
+        "filename": "ocf-light-server/src/main/java/org/iotivity/base/examples/Light.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 4407
+      },
+      "writtenOn": "2018-01-11T22:45:04Z",
+      "side": 1,
+      "message": "same comment as other spec defined strings.",
+      "range": {
+        "startLine": 44,
+        "startChar": 32,
+        "endLine": 44,
+        "endChar": 39
+      },
+      "revId": "a1327fad1c4a53fb2db83817a1466e0f12360243",
+      "serverId": "c6509b8a-a471-4ec1-8e5f-9aed2654acb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_9fbbfd0d",
+        "filename": "ocf-light-server/src/main/java/org/iotivity/base/examples/Light.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 4407
+      },
+      "writtenOn": "2018-01-11T22:45:04Z",
+      "side": 1,
+      "message": "same comment as other spec defined strings.",
+      "range": {
+        "startLine": 45,
+        "startChar": 45,
+        "endLine": 45,
+        "endChar": 50
+      },
+      "revId": "a1327fad1c4a53fb2db83817a1466e0f12360243",
+      "serverId": "c6509b8a-a471-4ec1-8e5f-9aed2654acb5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1aa4ed85_3f38c99f",
+        "filename": "ocf-light-server/src/main/java/org/iotivity/base/examples/Light.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 4407
+      },
+      "writtenOn": "2018-01-11T22:45:04Z",
+      "side": 1,
+      "message": "same comment as other spec defined strings.",
+      "range": {
+        "startLine": 103,
+        "startChar": 32,
+        "endLine": 103,
+        "endChar": 40
+      },
+      "revId": "a1327fad1c4a53fb2db83817a1466e0f12360243",
+      "serverId": "c6509b8a-a471-4ec1-8e5f-9aed2654acb5",
+      "unresolved": false
+    }
+  ]
+}
