@@ -566,7 +566,7 @@ public class IotivityScannerClient implements
                     lightRepresentation = light.getOcRepresentation();
 
                 } catch (OcException e) {
-                    AlexaIotivityBridgeDemo.msgError("Failed to get OcRepresentation from light -- " + e.toString());
+                    IotivityScanner.msgError("Failed to get OcRepresentation from light -- " + e.toString());
                 }
 
                 if (lightRepresentation != null) {
@@ -576,7 +576,7 @@ public class IotivityScannerClient implements
                         ocResource.put(lightRepresentation, queryParams, this);
 
                     } catch (OcException e) {
-                        AlexaIotivityBridgeDemo.msgError("Error occurred while invoking \"put\" API -- " + e.toString());
+                        IotivityScanner.msgError("Error occurred while invoking \"put\" API -- " + e.toString());
                     }
                 }
             }
@@ -742,6 +742,7 @@ public class IotivityScannerClient implements
         for (OcResource ocResource : mIotivityResourceLookup.values()) {
             if (ocResource.getUri().contains(Light.OIC_URI_PREFIX_LIGHT)) {
                 try {
+                    IotivityScanner.msg("Cancelling Observe for " + ocResource.getUri());
                     ocResource.cancelObserve();
                 } catch (OcException e) {
                     IotivityScanner.msgError("Error occurred while invoking \"cancelObserve\" API for resource "

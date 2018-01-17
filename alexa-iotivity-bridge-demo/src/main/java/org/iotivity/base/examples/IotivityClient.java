@@ -814,9 +814,10 @@ public class IotivityClient implements
         for (OcResource ocResource : mIotivityResourceLookup.values()) {
             if (ocResource.getUri().contains(Light.OIC_URI_PREFIX_LIGHT)) {
                 try {
+                    AlexaIotivityBridgeDemo.msg("Cancelling Observe for " + ocResource.getUri());
                     ocResource.cancelObserve();
                 } catch (OcException e) {
-                    IotivityScanner.msgError("Error occurred while invoking \"cancelObserve\" API for resource "
+                    AlexaIotivityBridgeDemo.msgError("Error occurred while invoking \"cancelObserve\" API for resource "
                             + ocResource.getUri() + " -- " + e.toString());
                 }
             }
