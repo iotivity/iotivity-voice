@@ -90,7 +90,7 @@ public class OcfLightDevice {
         }
 
         PlatformConfig platformConfig = new PlatformConfig(ServiceType.IN_PROC, ModeType.SERVER, "0.0.0.0", 0,
-                QualityOfService.LOW);
+                QualityOfService.LOW, "/res/server_security.dat", "/res/server_introspection.dat");
 
         OcPlatform.Configure(platformConfig);
         msg("Platform configured");
