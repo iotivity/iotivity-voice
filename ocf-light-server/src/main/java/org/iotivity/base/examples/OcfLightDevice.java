@@ -33,6 +33,10 @@ import org.iotivity.base.ServiceType;
 import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -89,8 +93,12 @@ public class OcfLightDevice {
             parseNameAndInitialSettings(args, 0);
         }
 
+        // copy dat files from jar to filesystem
+        copyFromJarToFilesystem("/res/server_security.dat", "/tmp/server_security.dat");
+        copyFromJarToFilesystem("/res/server_introspection.dat", "/tmp/server_introspection.dat");
+
         PlatformConfig platformConfig = new PlatformConfig(ServiceType.IN_PROC, ModeType.SERVER, "0.0.0.0", 0,
-                QualityOfService.LOW);
+                QualityOfService.LOW, "/tmp/server_security.dat", "/tmp/server_introspection.dat");
 
         OcPlatform.Configure(platformConfig);
         msg("Platform configured");
@@ -187,6 +195,26 @@ public class OcfLightDevice {
             Thread.sleep(seconds * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
+            msgError(e.toString());
+        }
+    }
+
+    private static void copyFromJarToFilesystem(String jarFilename, String filename) {
+        try {
+            InputStream fileInStream = OcfLightDevice.class.getResourceAsStream(jarFilename);
+
+            File file = new File(filename);
+            file.delete();
+            OutputStream fileOutStream = new FileOutputStream(file);
+
+            byte[] fileBuffer = new byte[fileInStream.available()];
+            fileInStream.read(fileBuffer);
+            fileOutStream.write(fileBuffer);
+
+            fileInStream.close();
+            fileOutStream.close();
+
+        } catch (IOException e) {
             msgError(e.toString());
         }
     }
